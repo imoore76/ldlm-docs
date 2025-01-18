@@ -1,0 +1,17 @@
+version: 2
+
+sphinx:
+  configuration: conf.py
+
+python:
+  install:
+  - requirements: requirements.txt
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.9"
+  jobs:
+    post_checkout:
+      - git submodule update --init --recursive
+      - git --git-dir=./py-ldlm/.git checkout tags/`git --git-dir=./py-ldlm/.git tag --list ${READTHEDOCS_VERSION}.* | sort -V | tail -n 1` || true

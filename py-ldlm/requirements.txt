@@ -1,0 +1,8 @@
+sphinx
+sphinx_rtd_theme
+autodoc
+myst-parser
+m2r2
+sphinx-copybutton
+setuptools-scm>=8
+./py-ldlm

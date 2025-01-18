@@ -1,0 +1,14 @@
+.*
+!/.gitignore
+!/.github
+!/.goreleaser.yaml
+!/.dockerfile
+!/.api_config.yaml
+!/.readthedocs.yaml
+/dist
+**/build
+
+# Added by vscode's C# extension
+/ldlm.sln
+/examples/c#/obj
+/examples/c#/bin
