@@ -1,14 +1,9 @@
 .*
 !/.gitignore
 !/.github
-!/.goreleaser.yaml
-!/.dockerfile
-!/.api_config.yaml
+!/.gitmodules
 !/.readthedocs.yaml
 /dist
 **/build
 
-# Added by vscode's C# extension
-/ldlm.sln
-/examples/c#/obj
-/examples/c#/bin
+ldlm/py/py-ldlm/*
