@@ -13,5 +13,6 @@ build:
     python: "3.9"
   jobs:
     post_checkout:
+      - echo ${PY_LDLM_VERSION}
       - git submodule update --init --recursive
       - git --git-dir=./ldlm/py/py-ldlm/.git checkout tags/${PY_LDLM_VERSION}
