@@ -7,8 +7,8 @@ Below are some common use cases and client code examples.
 
 .. note::
 
-    The examples that follow use client libraries available
-    :ref:`here<api:Native Clients>`.
+    The examples that follow use native client libraries available under
+    the **Native Client** heading in this site's navigation.
 
 Failover
 ===============================

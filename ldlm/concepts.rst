@@ -9,8 +9,8 @@ it is released (unlocked) by the lock holder.
 
 .. note::
 
-    The examples that follow use client libraries available
-    :ref:`here<api:Native Clients>`.
+    The examples in this section use :ref:`native client<server/api:native clients>` libraries.
+
 
 Locks
 =========
@@ -113,7 +113,7 @@ or :ref:`server side<uses:Server-side Rate Limiting>` rate limiter.
     
     In rare cases where client connections are unreliable,
     a lock timeout could be used on all locks
-    and the :ref:`No Unlock on Client Disconnect <configuration:No Unlock on Client Disconnect>`
+    and the :ref:`No Unlock on Client Disconnect <server/configuration:No Unlock on Client Disconnect>`
     option set in the LDLM server. This would be tolerant of client disconnects
     while still ensuring that no deadlocks occur.
     
@@ -353,8 +353,37 @@ The ``Unlock()`` method is used to release a held lock.
                 panic(err)
             }
 
+Advanced
+==========================
+
+Lock Keys
+--------------
+Internally, LDLM manages client synchronization using lock keys. If a client attempts
+to ``Unlock()`` a lock that it no longer has acquired (either via timeout, stateless server
+restart, or network disconnect), an error is returned.
+
+Lock keys are meant to detect when LDLM and a client are out of sync.
+They are not cryptographic. They are not secret. They are not meant to deter malicious
+users from releasing locks.
+
+When desynchronization occurs and an incorrect key is used, an 
+:ref:`InvalidLockKey<server/api:api errors>`
+error is returned or raised (language specific) by the ``Unlock()`` method.
+
+Lock Garbage Collection
+----------------------------
+Each lock requires a small, but non-zero amount of memory.
+For performance reasons, "idle" (unlocked) locks in LDLM live until an internal lock
+garbage collection task runs.
+In cases where a large number of locks are continually created
+at a high rate, lock garbage collection related settings may need to be adjusted.
+
+:ref:`server/configuration:Lock Garbage Collection Interval (advanced)` determines how often lock
+garbage collection will run. :ref:`server/configuration:Lock Garbage Collection Idle Duration (advanced)`
+determines which locks are considered "idle" based on how long they have been unlocked.
+
 Manually Renewing a lock
-===========================
+----------------------------
 
 .. important::
     
@@ -425,32 +454,3 @@ the ``Lock`` object returned by any locking function.
                 panic(err)
             }
 
-
-Advanced
-==========================
-
-Lock Keys
---------------
-Internally, LDLM manages client synchronization using lock keys. If a client attempts
-to ``Unlock()`` a lock that it no longer has acquired (either via timeout, stateless server
-restart, or network disconnect), an error is returned.
-
-Lock keys are meant to detect when LDLM and a client are out of sync.
-They are not cryptographic. They are not secret. They are not meant to deter malicious
-users from releasing locks.
-
-When desynchronization occurs and an incorrect key is used, an 
-:ref:`InvalidLockKey<api:api errors>`
-error is returned or raised (language specific) by the ``Unlock()`` method.
-
-Lock Garbage Collection
-----------------------------
-Each lock requires a small, but non-zero amount of memory.
-For performance reasons, "idle" (unlocked) locks in LDLM live until an internal lock
-garbage collection task runs.
-In cases where a large number of locks are continually created
-at a high rate, lock garbage collection related settings may need to be adjusted.
-
-:ref:`configuration:Lock Garbage Collection Interval (advanced)` determines how often lock
-garbage collection will run. :ref:`configuration:Lock Garbage Collection Idle Duration (advanced)`
-determines which locks are considered "idle" based on how long they have been unlocked.

@@ -1,3 +1,0 @@
-[submodule "py-ldlm/py-ldlm"]
-	path = py-ldlm/py-ldlm
-	url = https://github.com/imoore76/py-ldlm.git

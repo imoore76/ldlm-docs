@@ -2,7 +2,7 @@
 Configuration
 ================
 
-Server configuration is facilitated using any combination of
+Server configuration is specified using any combination of
 (in order of value precedence)
 CLI options, environment
 variables, and a configuration file. An option specified on the command line will
@@ -12,7 +12,7 @@ the same option set in a config file.
 Options
 ----------------------------------------------
 
-See available by running
+See available options by running
 
 .. code-block:: bash
 
@@ -21,7 +21,7 @@ See available by running
 
 Configuration file
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Path to :ref:`configuration file<configuration:Config File Syntax>`.
+Path to :ref:`configuration file<server/configuration:Config File Syntax>`.
 
 .. option:: -c <file>, --config_file <file>
     
@@ -30,7 +30,7 @@ Path to :ref:`configuration file<configuration:Config File Syntax>`.
 
 .. seealso::
 
-    For syntax and format of the configuration file, see :ref:`configuration:Config File Syntax`
+    For syntax and format of the configuration file, see :ref:`server/configuration:Config File Syntax`
 
 Default Lock Timeout
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,7 +132,7 @@ IPC Socket File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Path to a file to use for IPC (inter process communication) 
-with the ``ldlm-lock`` :ref:`command<usage:Lock Tool>`.
+with the ``ldlm-lock`` :ref:`command<server/usage:Lock Tool>`.
 This file should not exist; it will be created by the
 server. Set to an empty string to disable IPC. 
 
@@ -294,7 +294,7 @@ configuration options by running
 
 .. seealso::
 
-    How to :ref:`specify a configuration file <configuration:Configuration file>`.
+    How to :ref:`specify a configuration file <server/configuration:Configuration file>`.
 
 Configuration Recipes
 ------------------------
@@ -302,8 +302,8 @@ Configuration Recipes
 Server TLS
 ^^^^^^^^^^^^^^^^^
 
-Enable server TLS by specifying :ref:`configuration:TLS Certificate` and
-:ref:`configuration:TLS Certificate Key`. E.g.
+Enable server TLS by specifying :ref:`server/configuration:TLS Certificate` and
+:ref:`server/configuration:TLS Certificate Key`. E.g.
 
 .. code-block:: text
 
@@ -325,28 +325,28 @@ a ``CA Certificate`` option.
 Mutual TLS
 ^^^^^^^^^^^^^^^^^
 
-To enable client TLS certificate verification, use the :ref:`configuration:Verify TLS Client Certificates`
+To enable client TLS certificate verification, use the :ref:`server/configuration:Verify TLS Client Certificates`
 option.
 
 If the CA that issued the client certs is not in a path searched by GO, you must specify
-the path to the CA cert with  :ref:`configuration:Client CA Certificate`.
-These options should be combined with :ref:`configuration:Server TLS` options.
+the path to the CA cert with  :ref:`server/configuration:Client CA Certificate`.
+These options should be combined with :ref:`server/configuration:Server TLS` options.
 
 .. note::
-    Specifying the :ref:`configuration:Client CA Certificate` will automatically
+    Specifying the :ref:`server/configuration:Client CA Certificate` will automatically
     enable client cert verification,
-    so specifying :ref:`configuration:Verify TLS Client Certificates`
+    so specifying :ref:`server/configuration:Verify TLS Client Certificates`
     would not be needed in those cases.
 
 REST Server
 ^^^^^^^^^^^^^^^^^
 
-LDLM's REST server can be enabled by simply specifying the :ref:`configuration:REST Listen Address`.
+LDLM's REST server can be enabled by simply specifying the :ref:`server/configuration:REST Listen Address`.
 Left unspecified, its REST server will not be enabled.
-See :ref:`REST Endpoint API usage<api:REST Server API>`.
+See :ref:`REST Endpoint API usage<server/api:REST Server API>`.
 
 .. note::
     
     There is no way to disable LDLM's gRPC server, but you can specify its
-    :ref:`configuration:Listen address` to be
+    :ref:`server/configuration:Listen address` to be
     the local loopback address (``127.0.0.1``) so that it is not exposed.

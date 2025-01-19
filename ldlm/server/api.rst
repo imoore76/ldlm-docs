@@ -3,23 +3,11 @@ API Usage
 =============
 
 API clients can be created using any language supported by gRPC.
-If a :ref:`native client<api:native clients>` is not available for your language,
-|examples| in other languages are available.
+If a client is not available for your programming language, see LDLM
+|examples| folder.
 
 Native Clients
 ================
-
-.. |basicauth| raw:: html
-
-    <a href="https://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">basic auth</a>
-
-.. |golang| raw:: html
-
-    <a href="https://github.com/imoore76/ldlm/tree/main/client" target="_blank">Go</a>
-
-.. |python| raw:: html
-
-    <a href="https://github.com/imoore76/py-ldlm" target="_blank">Python</a>
 
 .. |examples| raw:: html
 
@@ -27,16 +15,21 @@ Native Clients
 
 Native LDLM clients are available for
 
-* |golang|
-* |python|
+* :ref:`Go<go/index:Go Client>`
+* :ref:`Python<py/index:Python Client>`
 
 Native clients have their own usage documented in their respective repos. 
 
-REST Server API
-==========================
+.. |basicauth| raw:: html
 
-The :ref:`REST server<configuration:rest server>` accepts JSON input and has
-the following API endpoints. 
+    <a href="https://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">basic auth</a>
+
+
+REST Server API
+================
+
+LDLM's :ref:`REST server<server/configuration:rest server>` accepts JSON input and has
+the following API endpoints.
 
 .. option:: POST /session
 
@@ -69,16 +62,22 @@ the following API endpoints.
     * ``key`` - key for the lock
     * ``lock_timeout_seconds`` - lock timeout
 
+
+.. note:: 
+
+    LDLM's REST server :ref:`must be enabled<server/configuration:rest server>`  in order to use these endpoints.
+
+
 Example REST Client Usage
 ------------------------------
 
 The following examples use ``curl`` and its cookie jar feature to maintain the session cookie
 across requests. If your REST session has been idle for more than 10m
-(:ref:`configurable<configuration:REST Session Timeout (advanced)>`),
+(:ref:`configurable<server/configuration:REST Session Timeout (advanced)>`),
 your session will expire and all locks you have obtained will be unlocked.
 
 .. important::
-    :ref:`Session creation<api:Create a session>` and the resulting session cookie are required in order to use
+    :ref:`Session creation<server/api:Create a session>` and the resulting session cookie are required in order to use
     the REST endpoints.
 
 Create a session
@@ -143,8 +142,8 @@ Delete session
     }
 
 Authentication
-^^^^^^^^^^^^^^^^^^^^^^
-If you have set :ref:`configuration:Client Password` on the LDLM server, it will
+-------------------
+If you have set :ref:`server/configuration:Client Password` on the LDLM server, it will
 also apply to the REST
 endpoint. The password should be supplied using |basicauth|.
 
@@ -156,7 +155,7 @@ endpoint. The password should be supplied using |basicauth|.
     }
 
 REST API Error Format
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------
 REST API errors are returned in an ``error`` object.
 
 .. code-block:: bash
@@ -171,6 +170,7 @@ REST API errors are returned in an ``error`` object.
         "locked" : false,
         "name" : "My lock"
     }
+
 
 
 API Errors

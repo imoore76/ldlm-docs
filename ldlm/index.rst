@@ -2,7 +2,7 @@
 LDLM
 ====================
 
-.. image:: ../images/LDLM\ Main\ Logo.png
+.. image:: ../images/logo_main.png
     :align: center
     :alt: ldlm logo
 
@@ -17,15 +17,29 @@ Contents
 
 .. toctree::
     :maxdepth: 2
+    :caption: LDLM
 
-    overview
-    concepts
-    configuration
-    usage
-    uses
-    api
-    contributing
-    license
+    /overview
+    /concepts
+    /uses
+    /contributing
+    /license
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Server
+
+    /server/usage
+    /server/configuration
+    /server/api
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Native Clients
+
+	Go </go/index>
+    Python </py/index>
+
 
 Disclaimer
 --------------------

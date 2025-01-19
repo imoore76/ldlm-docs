@@ -7,7 +7,12 @@ LDLM is a lightweight distributed lock manager with many use cases.
 Installation
 =============
 
-Numerous installation options exist for LDLM.
+Various installation options exist for LDLM server.
+
+.. seealso::
+
+    Looking to install an LDLM client? Native Clients for LDLM can be found in
+    the :ref:`native client<server/api:native clients>` section.
 
 .. |github_releases| raw:: html
 
@@ -29,7 +34,9 @@ Packages are available as
 
 on the LDLM |github_releases| page.
 
-Container Image (docker, kubernetes, et al.)
+
+
+Container Image
 ---------------------------------------------------------
 For containerized environments, the docker image ``ian76/ldlm:latest`` is available from |dockerhub|.
 
@@ -39,7 +46,3 @@ For containerized environments, the docker image ``ian76/ldlm:latest`` is availa
     {"time":"2024-04-27T03:33:03.434075592Z","level":"INFO","msg":"loadState() loaded 0 client locks from state file"}
     {"time":"2024-04-27T03:33:03.434286717Z","level":"INFO","msg":"IPC server started","socket":"/tmp/ldlm-ipc.sock"}
     {"time":"2024-04-27T03:33:03.434402133Z","level":"WARN","msg":"gRPC server started. Listening on 0.0.0.0:3144"}
-
-.. seealso::
-
-    Clients for LDLM can be find in :doc:`API Usage > Native Clients </api>`

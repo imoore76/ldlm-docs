@@ -2,6 +2,11 @@
 Usage
 ================
 
+LDLM server is distributed with 2 programs:
+
+* :ref:`ldlm-server<server/usage:server>` - the main LDLM server
+* :ref:`ldlm-lock<server/usage:lock tool>` - lock manipulation tool
+
 Server
 ------------
 
@@ -13,7 +18,7 @@ Start the LDLM server with
 
 .. seealso::
 
-    See :ref:`command line options<configuration:options>` 
+    See :ref:`command line options<server/configuration:options>` 
     and ``ldlm-server --help``.
 
 
@@ -25,7 +30,7 @@ It must be run on the same environment (machine, container, et al.) as a running
 
 .. seealso::
 
-    See :ref:`IPC configuration<configuration:IPC Socket File>`
+    See :ref:`IPC configuration<server/configuration:IPC Socket File>`
     and ``ldlm-lock --help``
 
 Commands
