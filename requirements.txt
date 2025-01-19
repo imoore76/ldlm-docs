@@ -4,4 +4,4 @@ autodoc
 myst-parser
 sphinx-tabs
 sphinx-copybutton
-multiproject
+sphinx-multiproject
