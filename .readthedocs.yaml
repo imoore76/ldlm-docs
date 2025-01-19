@@ -15,4 +15,4 @@ build:
     post_checkout:
       - echo ${PY_LDLM_VERSION}
       - git submodule update --init --recursive
-      - git --git-dir=./ldlm/py/py-ldlm/.git checkout tags/${PY_LDLM_VERSION}
+      - git --git-dir=./ldlm/py/py-ldlm/.git checkout tags/`git --git-dir=./ldlm/py/py-ldlm/.git tag --list | sort -V | tail -n 1`
