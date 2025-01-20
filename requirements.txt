@@ -5,3 +5,4 @@ myst-parser
 sphinx-tabs
 sphinx-copybutton
 sphinx-multiproject
+./ldlm/py/py-ldlm
