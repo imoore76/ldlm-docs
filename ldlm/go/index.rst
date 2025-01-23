@@ -82,9 +82,18 @@ Comprehensive Go module documentation is available at |apidocs|.
 Create a Client
 --------------------
 A client takes a context and a :ref:`Config<go/index:Client Config>` object.
-You can Cancel the context to abort a client's operations.
+Cancelling the context aborts a client's operations.
+
+.. option:: func New(ctx context.Context, conf Config, opts ...grpc.DialOption) (*Client, error)
 
 .. code-block:: go
+    :caption: Client creation example
+
+    import (
+        "context"
+
+        "github.com/imoore76/ldlm/client"
+    )
 
     c, err := client.New(context.Background(), client.Config{
         Address: "localhost:3144",
@@ -94,7 +103,7 @@ You can Cancel the context to abort a client's operations.
         panic(err)
     }
 
-``New()`` also takes an arbitrary number of
+``New()`` takes an arbitrary number of
 gRPC |dialopts|
 that are passed along to ``grpc.Dial()``.
 
