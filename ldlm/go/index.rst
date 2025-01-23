@@ -7,7 +7,7 @@ Go Client
 
     <p>
     A Go <a href="http://github.com/imoore76/ldlm" target="_blank">LDLM</a> client library
-    at <a href="http://github.com/imoore76/ldlm/client" target="_blank">http://github.com/imoore76/ldlm/client</a>.
+    from <a href="https://github.com/imoore76/ldlm/tree/main/client" target="_blank">https://github.com/imoore76/ldlm/tree/main/client</a>.
     </p>
 
 |inline1|
@@ -159,7 +159,8 @@ Lock()
 
 .. option:: func (c *Client) Lock(name string, options *LockOptions) (*Lock, error)
 
-``Lock()`` attempts to acquire a lock in LDLM. It will block until the lock is acquired or until ``WaitTimeoutSeconds`` has elapsed (if specified).
+``Lock()`` attempts to acquire a lock in LDLM. It will block until the lock is
+acquired or until ``WaitTimeoutSeconds`` has elapsed (if specified).
 It accepts the following arguments:
 
 
@@ -173,7 +174,7 @@ It accepts the following arguments:
     * - ``*LockOptions``
       - Options for the lock
 
-It returns a ``*Lock`` and an ``error``.
+It returns a :ref:`*Lock<go/index:Lock Object>` and an ``error``.
 
 Examples
 ++++++++++++++
@@ -218,7 +219,7 @@ TryLock()
 
 ``TryLock()`` attempts to acquire a lock and immediately returns;
 whether the lock was acquired or not. You must inspect the
-returned lock's ``Locked`` property to determine if it was acquired.
+returned :ref:`lock's<go/index:Lock Object>` ``Locked`` property to determine if it was acquired.
 
 ``TryLock()`` accepts the following arguments.
 
@@ -232,7 +233,7 @@ returned lock's ``Locked`` property to determine if it was acquired.
     * - ``*LockOptions``
       - Options for the lock
 
-It returns a ``*Lock`` and an ``error``.
+It returns a :ref:`*Lock<go/index:Lock Object>` and an ``error``.
 
 Examples
 +++++++++++++

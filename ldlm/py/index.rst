@@ -97,7 +97,7 @@ Async Client
 TLS Configuration
 --------------------
 
-Using TLS for LDLM client connections involves passing an :ref:`ldlm.TLSConfig<py/index:TLS Configuration>` object to 
+Using TLS for LDLM client connections involves passing a :ref:`ldlm.TLSConfig<py/index:TLS Config>` object to 
 the client on instantiation.
 
 .. code-block:: python
