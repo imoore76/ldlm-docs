@@ -2,9 +2,14 @@
 API Usage
 =============
 
-API clients can be created using any language supported by gRPC.
-If a client is not available for your programming language, see LDLM
-|examples| folder.
+.. |grcpclangs| raw:: html
+
+    <a href="https://grpc.io/docs/languages/" target="_blank">programming language supported by gRPC</a>
+
+
+LDLM offers some :ref:`native clients<server/api:native clients>` for some programming languages.
+If a client is not available for your language of choice, API clients can be created using any 
+|grcpclangs|. See LDLM |examples| folder for some example gRPC clients.
 
 Native Clients
 ================
@@ -18,8 +23,6 @@ Native LDLM clients are available for
 * :ref:`Go<go/index:Go Client>`
 * :ref:`Python<py/index:Python Client>`
 
-Native clients have their own usage documented in their respective repos. 
-
 .. |basicauth| raw:: html
 
     <a href="https://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">basic auth</a>
@@ -28,6 +31,7 @@ Native clients have their own usage documented in their respective repos.
 REST Server API
 ================
 
+If configured, LDLM also exposes some lock operations over REST.
 LDLM's :ref:`REST server<server/configuration:rest server>` accepts JSON input and has
 the following API endpoints.
 
@@ -41,7 +45,7 @@ the following API endpoints.
 
 .. option:: POST /v1/lock
 
-    Behaves like :ref:`concepts:TryLock`, and accepts the following parameters:
+    Behaves like :ref:`concepts:TryLock` and accepts the following parameters:
 
     * ``name`` - name of lock
     * ``lock_timeout_seconds`` - lock timeout

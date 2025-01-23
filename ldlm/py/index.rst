@@ -81,7 +81,7 @@ Async Client
     lock = await client.lock("my-task")
 
     try:
-        do_something()
+        await do_something()
     finally:
         await lock.unlock()
 

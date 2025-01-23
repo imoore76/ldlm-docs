@@ -2,7 +2,7 @@
 Usage
 ================
 
-LDLM server is distributed with 2 programs:
+LDLM server is distributed as 2 applications:
 
 * :ref:`ldlm-server<server/usage:server>` - the main LDLM server
 * :ref:`ldlm-lock<server/usage:lock tool>` - lock manipulation tool

@@ -22,16 +22,11 @@ Contents
     /overview
     /concepts
     /uses
-    /contributing
-    /license
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Server
-
     /server/usage
     /server/configuration
     /server/api
+    /contributing
+    /license
 
 .. toctree::
     :maxdepth: 2
